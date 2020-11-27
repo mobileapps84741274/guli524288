@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "../../include/openclminer.h"
+#include "../../include/opencllinux84.h"
 
 using namespace std;
 
