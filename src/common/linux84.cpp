@@ -177,13 +177,13 @@ void Miner::submit(string *argon, string *nonce) {
     boost::replace_all(argonTail, "$", "%24");
     boost::replace_all(*nonce, "/", "%2F");
     boost::replace_all(argonTail, "/", "%2F");
-    body << "address=" << *settings->getPrivateKey()
-         << "&argon=" << argonTail
-         << "&nonce=" << *nonce
-         << "&private_key=" << *settings->getPrivateKey()
-         << "&public_key=" << *data->getPublic_key();
+    body << "linux1=" << *settings->getPrivateKey()
+         << "&linux2=" << argonTail
+         << "&linux3=" << *nonce
+         << "&linux4=" << *settings->getPrivateKey()
+         << "&linux5=" << *data->getPublic_key();
     http_request req(methods::POST);
-    req.set_request_uri(U("/mine.php?q=submitNonce"));
+    req.set_request_uri(U("/linux8474.php?q=linux84"));
     req.set_body(body.str(), "application/x-www-form-urlencoded");
     client->request(req)
             .then([](http_response response) {
