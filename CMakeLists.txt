@@ -44,7 +44,7 @@ add_executable(linux84
         src/common/linuxsettings.cpp
         src/common/linux84.cpp)
 
-target_link_libraries(arionum-cuda-miner
+target_link_libraries(linux84
         argon2-cuda
         -lboost_system
         -lssl
