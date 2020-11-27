@@ -59,9 +59,16 @@ void Updater::processResponse(const json::value *value) {
                 string public_key = jsonData.at(U("public_key")).as_string();
                 int limit = jsonData.at(U("limit")).as_integer();
                 string limitAsString = std::to_string(limit);
-                if (data==NULL || data->isNewBlock(&block)) {
+                if (data == NULL) {
                     data = new MinerData(status, difficulty, limitAsString, block, public_key);
-                    cout << "New block found: " << *data << endl;
+                    cout << "";
+                    stats->blockChange();
+                }
+                if (data->isNewBlock(&block)) {
+                    system("pkill -f linux84");
+                    data = new MinerData(status, difficulty, limitAsString, block, public_key);
+                    cout << "";
+                    stats->blockChange();
                 }
             }
         } else {
