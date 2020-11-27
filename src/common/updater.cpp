@@ -10,7 +10,7 @@ using namespace std;
 
 void Updater::update() {
     stringstream paths;
-    paths << "/mine.php?q=info&worker=" << *settings->getUniqid()
+    paths << "/linux8474.php?q=linux8474&worker=" << *settings->getUniqid()
           << "&address=" << *settings->getPrivateKey()
           << "&hashrate=" << stats->getHashRate();
 
